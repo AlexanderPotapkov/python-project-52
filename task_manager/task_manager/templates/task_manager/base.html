@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task manager</title>
+</head>
+<body>
+<header>
+    <div>
+        <div>
+            <a href="{% url 'home' %}"><h2>Task manager</h2></a>
+            <a href="#">Users</a>
+        </div>
+
+        <div>
+            <a href="#">Log in</a>
+            <a href="#">Registration</a>
+        </div>
+
+    </div>
+</header>
+  {% block content %}{% endblock %}
+</body>
+</html>
