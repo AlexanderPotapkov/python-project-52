@@ -10,6 +10,7 @@ packages = [{include = "python_project_52"}]
 python = "^3.9"
 django = "^4.1.5"
 flake8 = "^6.0.0"
+python-dotenv = "^0.21.0"
 
 
 [build-system]
