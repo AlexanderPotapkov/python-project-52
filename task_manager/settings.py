@@ -9,8 +9,13 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import dj_database_url
+import os
 
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n50&#_2s2b2z$%n!55%x!552k(umbdfbg650jxj9gy-80g_e^@'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'true').lower() in {'yes', '1', 'true'}
 
 ALLOWED_HOSTS = [
     'webserver',
@@ -78,10 +83,29 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'postgres'),
+        'USER': os.getenv('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'password'),
+        'HOST': os.getenv('POSTGRES_HOST', 'postgres'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+    },
 }
+
+SQLITE_SETTINGS = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+}
+
+if os.getenv('DB_ENGINE') == 'SQLite':
+    DATABASES['default'] = SQLITE_SETTINGS
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+CONN_MAX_AGE = 600
+
+if os.getenv('DATABASE_URL'):
+    DATABASES['default'] = dj_database_url.config(conn_max_age=CONN_MAX_AGE)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

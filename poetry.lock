@@ -10,6 +10,17 @@ python-versions = ">=3.7"
 tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
+name = "dj-database-url"
+version = "1.2.0"
+description = "Use Database URLs in your Django Application."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
 name = "django"
 version = "4.1.5"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
@@ -93,12 +104,16 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "7453996b7179087ec537aa6995427bfd665688125d1c6013e7fdc0a393b2d7f1"
+content-hash = "8227da9ae3fb255144ede7d5b570ee90c497bfc1ef6d72747a569e113b007b55"
 
 [metadata.files]
 asgiref = [
     {file = "asgiref-3.6.0-py3-none-any.whl", hash = "sha256:71e68008da809b957b7ee4b43dbccff33d1b23519fb8344e33f049897077afac"},
     {file = "asgiref-3.6.0.tar.gz", hash = "sha256:9567dfe7bd8d3c8c892227827c41cce860b368104c3431da67a0c5a65a949506"},
+]
+dj-database-url = [
+    {file = "dj-database-url-1.2.0.tar.gz", hash = "sha256:b23b15046cb38180e0c95207bcc90fe5e9dbde8eef16065907dd85cf4ca7036c"},
+    {file = "dj_database_url-1.2.0-py3-none-any.whl", hash = "sha256:5c2993b91801c0f78a8b19e642b497b90831124cbade0c265900d4c1037b4730"},
 ]
 django = [
     {file = "Django-4.1.5-py3-none-any.whl", hash = "sha256:4b214a05fe4c99476e99e2445c8b978c8369c18d4dea8e22ec412862715ad763"},
