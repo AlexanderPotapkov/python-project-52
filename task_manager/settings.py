@@ -157,40 +157,28 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'console': {
-            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+            'format': '%(name)-12s %(levelname)-8s %(message)s'
         },
         'file': {
             'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
         }
     },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        }
-    },
-    "handlers": {
-        "console": {
-            "level": "DEBUG",
-            'filters': ['require_debug_true'],
-            "class": "logging.StreamHandler",
-            'formatter': 'console',
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'console'
         },
         'file': {
-            'filters': ['require_debug_false'],
-            'environment': 'production',
+            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'file',
-            'filename': 'debug.log',
-        },
+            'filename': 'debug.log'
+        }
     },
     'loggers': {
-        'task_manager': {
-            'handlers': ['console', 'file'],
+        '': {
             'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
+            'handlers': ['console', 'file']
+        }
+    }
 }
