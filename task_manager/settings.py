@@ -151,3 +151,46 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        },
+        'file': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        }
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        }
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            'filters': ['require_debug_true'],
+            "class": "logging.StreamHandler",
+            'formatter': 'console',
+        },
+        'file': {
+            'filters': ['require_debug_false'],
+            'environment': 'production',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'task_manager': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
