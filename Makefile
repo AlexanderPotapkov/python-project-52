@@ -14,7 +14,10 @@ lint:
 	poetry run flake8
 
 start:
-	poetry run python manage.py runserver
+	poetry run python manage.py runserver 0.0.0.0:8000
+
+req:
+	poetry export -f requirements.txt -o requirements.txt
 
 secretkey:
 	poetry run python -c 'from django.utils.crypto import get_random_string; print(get_random_string(40))'
