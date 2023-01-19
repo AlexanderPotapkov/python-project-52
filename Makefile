@@ -10,12 +10,6 @@ migrate:
 shell:
 	poetry run python manage.py shell
 
-test:
-	pass
-
-test-coverage:
-	pass
-
 lint:
 	poetry run flake8 task_manager
 
