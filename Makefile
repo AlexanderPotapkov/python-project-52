@@ -10,8 +10,14 @@ migrate:
 shell:
 	poetry run python manage.py shell
 
+test:
+	pass
+
+test-coverage:
+	pass
+
 lint:
-	poetry run flake8
+	poetry run flake8 task_manager
 
 start:
 	poetry run python manage.py runserver 0.0.0.0:8000
