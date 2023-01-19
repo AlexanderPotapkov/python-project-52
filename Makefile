@@ -16,6 +16,9 @@ lint:
 start:
 	poetry run python manage.py runserver 0.0.0.0:8000
 
+server:
+	python manage.py runserver 0.0.0.0:8000
+
 req:
 	poetry export -f requirements.txt -o requirements.txt
 
