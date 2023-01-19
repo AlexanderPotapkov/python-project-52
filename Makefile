@@ -13,11 +13,9 @@ shell:
 lint:
 	poetry run flake8 task_manager
 
+PORT ?= 8000
 start:
-	poetry run python manage.py runserver 0.0.0.0:8000
-
-server:
-	python manage.py runserver 0.0.0.0:8000
+	poetry run python manage.py runserver 0.0.0.0:$(PORT)
 
 req:
 	poetry export -f requirements.txt -o requirements.txt
