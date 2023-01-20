@@ -23,5 +23,11 @@ server:
 req:
 	poetry export -f requirements.txt -o requirements.txt
 
+translate:
+	django-admin makemessages -l ru
+
+compile:
+	django-admin compilemessages
+
 secretkey:
 	poetry run python -c 'from django.utils.crypto import get_random_string; print(get_random_string(40))'
