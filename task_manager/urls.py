@@ -24,5 +24,4 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('', IndexView.as_view(), name='home'),
-    prefix_default_language=True,
 )
