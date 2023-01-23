@@ -20,8 +20,8 @@
                     <a class="nav-link" href="{% url 'users_list' %}">{% trans "Users" %}</a>
                 </li>
             </ul>
-            <a class="btn btn-outline-primary my-2 my-sm-0" href="#">{% trans "Log in" %}</a>
-            <a class="btn btn-outline-secondary my-2 my-sm-0" href="#">{% trans "Registration" %}</a>
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="{% url 'login' %}">{% trans "Log in" %}</a>
+            <a class="btn btn-outline-secondary my-2 my-sm-0" href="{% url 'register' %}">{% trans "Registration" %}</a>
         </div>
     </div>
 </header>
