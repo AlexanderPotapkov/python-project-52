@@ -24,7 +24,7 @@ req:
 	poetry export -f requirements.txt -o requirements.txt
 
 translate:
-	django-admin makemessages -l ru
+	django-admin makemessages --ignore="static" --ignore=".env"  -l ru
 
 compile:
 	django-admin compilemessages
