@@ -23,6 +23,6 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    # path('i18n/', include('django.conf.urls.i18n')),
     path('', IndexView.as_view(), name='home'),
+    prefix_default_language=False,
 )
