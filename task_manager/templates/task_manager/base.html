@@ -8,20 +8,20 @@
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
-    <title>{% translate "Task manager" %}</title>
+    <title>{% trans "Task manager" %}</title>
 </head>
 <body>
 <header>
     <div class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{% url 'home' %}">{% translate "Task manager" %}</a>
+        <a class="navbar-brand" href="{% url 'home' %}">{% trans "Task manager" %}</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">{% translate "Users" %}</a>
+                    <a class="nav-link" href="#">{% trans "Users" %}</a>
                 </li>
             </ul>
-            <a class="btn btn-outline-primary my-2 my-sm-0" href="#">{% translate "Log in" %}</a>
-            <a class="btn btn-outline-secondary my-2 my-sm-0" href="#">{% translate "Registration" %}</a>
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="#">{% trans "Log in" %}</a>
+            <a class="btn btn-outline-secondary my-2 my-sm-0" href="#">{% trans "Registration" %}</a>
         </div>
     </div>
 </header>
