@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-20 17:18+0300\n"
+"POT-Creation-Date: 2023-01-23 17:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME Potapkov.a.p@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,13 +19,23 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: task_manager/settings.py:145
+
+#: task_manager/settings.py:146
 msgid "Russian"
 msgstr "Русский язык"
 
-#: task_manager/settings.py:146
+#: task_manager/settings.py:147
 msgid "English"
 msgstr "Английский язык"
+
+#: task_manager/templates/task_manager/authentication.html:9
+#: task_manager/templates/task_manager/base.html:23
+msgid "Log in"
+msgstr "Войти"
+
+#: task_manager/templates/task_manager/authentication.html:13
+msgid "Enter"
+msgstr ""
 
 #: task_manager/templates/task_manager/base.html:11
 #: task_manager/templates/task_manager/base.html:16
@@ -33,14 +43,12 @@ msgid "Task manager"
 msgstr "Менеджер задач"
 
 #: task_manager/templates/task_manager/base.html:20
+#: users/templates/users/users_list.html:9
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/task_manager/base.html:23
-msgid "Log in"
-msgstr "Войти"
-
 #: task_manager/templates/task_manager/base.html:24
+#: task_manager/utils/texts.py:33
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -51,3 +59,211 @@ msgstr "Добро пожаловать в Менеджер Задач!"
 #: task_manager/templates/task_manager/index.html:11
 msgid "Here you can create and manage tasks with tags and statuses."
 msgstr "Здесь вы можете создавать и управлять задачами с тегами и статусами."
+
+#: task_manager/utils/texts.py:6
+msgid "You need to authenticated"
+msgstr ""
+
+#: task_manager/utils/texts.py:7
+msgid "You don't have the rights to change another user."
+msgstr ""
+
+#: task_manager/utils/texts.py:9
+msgid "The status successfully deleted"
+msgstr ""
+
+#: task_manager/utils/texts.py:10
+msgid "The status successfully created"
+msgstr ""
+
+#: task_manager/utils/texts.py:11
+msgid "The status successfully updated"
+msgstr ""
+
+#: task_manager/utils/texts.py:12
+msgid "This status is used, you can't delete it"
+msgstr ""
+
+#: task_manager/utils/texts.py:13
+msgid "The label successfully deleted"
+msgstr ""
+
+#: task_manager/utils/texts.py:14
+msgid "The label successfully created"
+msgstr ""
+
+#: task_manager/utils/texts.py:15
+msgid "The label successfully updated"
+msgstr ""
+
+#: task_manager/utils/texts.py:16
+msgid "This label is used, you can't delete it"
+msgstr ""
+
+#: task_manager/utils/texts.py:18
+msgid "The user deleted! You need to log in again"
+msgstr ""
+
+#: task_manager/utils/texts.py:19
+msgid "The user successfully created"
+msgstr ""
+
+#: task_manager/utils/texts.py:20
+msgid "The user successfully updated"
+msgstr ""
+
+#: task_manager/utils/texts.py:21
+msgid "It is not possible to delete a user because it is being used"
+msgstr ""
+
+#: task_manager/utils/texts.py:23
+msgid "The task successfully deleted"
+msgstr ""
+
+#: task_manager/utils/texts.py:24
+msgid "The task successfully created"
+msgstr ""
+
+#: task_manager/utils/texts.py:25
+msgid "The task successfully updated"
+msgstr ""
+
+#: task_manager/utils/texts.py:26
+msgid "The task can only be deleted by its author"
+msgstr ""
+
+#: task_manager/utils/texts.py:31
+msgid "Save"
+msgstr ""
+
+#: task_manager/utils/texts.py:32 users/templates/users/users_list.html:32
+msgid "Delete"
+msgstr ""
+
+#: task_manager/utils/texts.py:34
+#, fuzzy
+#| msgid "Registration"
+msgid "Register"
+msgstr "Регистрация"
+
+#: task_manager/utils/texts.py:35
+msgid "Create label"
+msgstr ""
+
+#: task_manager/utils/texts.py:36
+msgid "Create task"
+msgstr ""
+
+#: task_manager/utils/texts.py:37
+msgid "Create status"
+msgstr ""
+
+#: task_manager/utils/texts.py:38
+msgid "Update label"
+msgstr ""
+
+#: task_manager/utils/texts.py:39
+msgid "Update task"
+msgstr ""
+
+#: task_manager/utils/texts.py:40
+msgid "Update status"
+msgstr ""
+
+#: task_manager/utils/texts.py:41
+msgid "Update user"
+msgstr ""
+
+#: task_manager/utils/texts.py:42 users/templates/users/users_list.html:30
+msgid "Update"
+msgstr ""
+
+#: task_manager/utils/texts.py:43
+msgid "Create"
+msgstr ""
+
+#: task_manager/utils/texts.py:44
+msgid "Delete task"
+msgstr ""
+
+#: task_manager/utils/texts.py:45
+msgid "Delete user"
+msgstr ""
+
+#: task_manager/utils/texts.py:46
+msgid "Delete label"
+msgstr ""
+
+#: task_manager/utils/texts.py:47
+msgid "Delete status"
+msgstr ""
+
+#: task_manager/utils/texts.py:52
+msgid "Name"
+msgstr ""
+
+#: task_manager/utils/texts.py:53
+#, fuzzy
+#| msgid "Registration"
+msgid "Description"
+msgstr "Регистрация"
+
+#: task_manager/utils/texts.py:54
+msgid "Label"
+msgstr ""
+
+#: task_manager/utils/texts.py:55
+msgid "Status"
+msgstr ""
+
+#: task_manager/utils/texts.py:56
+msgid "Executor"
+msgstr ""
+
+#: task_manager/utils/texts.py:57
+msgid "Date"
+msgstr ""
+
+#: task_manager/utils/texts.py:58
+msgid "Task"
+msgstr ""
+
+#: task_manager/utils/texts.py:59
+msgid "Author"
+msgstr ""
+
+#: task_manager/utils/texts.py:60
+msgid "Labels"
+msgstr ""
+
+#: task_manager/views.py:16
+msgid "You were logged in"
+msgstr ""
+
+#: task_manager/views.py:21
+msgid "You were logged out"
+msgstr ""
+
+#: users/templates/users/delete_user.html:10
+msgid "Are you sure you want to delete user"
+msgstr ""
+
+#: users/templates/users/delete_user.html:13
+msgid "Yes, delete"
+msgstr ""
+
+#: users/templates/users/users_list.html:14
+msgid "id"
+msgstr ""
+
+#: users/templates/users/users_list.html:15
+msgid "User name"
+msgstr ""
+
+#: users/templates/users/users_list.html:16
+msgid "Full name"
+msgstr ""
+
+#: users/templates/users/users_list.html:17
+msgid "Created date"
+msgstr ""

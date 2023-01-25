@@ -31,7 +31,7 @@ class TitlesName:
         self.save = _('Save')
         self.delete = _('Delete')
         self.reg = _('Registration')
-        self.to_reg = _('To register')
+        self.to_reg = _('Register')
         self.create_label = _('Create label')
         self.create_task = _('Create task')
         self.create_status = _('Create status')
@@ -41,10 +41,10 @@ class TitlesName:
         self.update_user = _('Update user')
         self.update = _('Update')
         self.create = _('Create')
-        self.to_del_task = _('To delete task')
-        self.to_del_user = _('To delete user')
-        self.to_del_label = _('To delete label')
-        self.to_del_status = _('To delete status')
+        self.to_del_task = _('Delete task')
+        self.to_del_user = _('Delete user')
+        self.to_del_label = _('Delete label')
+        self.to_del_status = _('Delete status')
 
 
 class FieldsName:
