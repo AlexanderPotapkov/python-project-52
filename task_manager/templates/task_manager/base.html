@@ -17,17 +17,17 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">{% trans "Users" %}</a>
+                    <a class="nav-link" href="{% url 'users_list' %}">{% trans "Users" %}</a>
                 </li>
             </ul>
-            <a class="btn btn-outline-primary my-2 my-sm-0" href="#">{% trans "Log in" %}</a>
-            <a class="btn btn-outline-secondary my-2 my-sm-0" href="#">{% trans "Registration" %}</a>
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="{% url 'login' %}">{% trans "Log in" %}</a>
+            <a class="btn btn-outline-secondary my-2 my-sm-0" href="{% url 'register' %}">{% trans "Registration" %}</a>
         </div>
     </div>
 </header>
 
 <main role="main" class="container" style="margin-top: 120px;">
-    {% block main %}{% endblock %}
+    {% block content %}{% endblock %}
 </main>
 </body>
 </html>
