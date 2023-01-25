@@ -13,4 +13,3 @@ htmlcov/
 .coverage
 env/
 *.log
-__
