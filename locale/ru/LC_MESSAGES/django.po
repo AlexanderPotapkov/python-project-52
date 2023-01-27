@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-20 17:18+0300\n"
+"POT-Creation-Date: 2023-01-27 16:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME Potapkov.a.p@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,36 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: task_manager/settings.py:145
+
+#: task_manager/apps/users/apps.py:8 task_manager/apps/users/models.py:16
+#: task_manager/apps/users/templates/users/users.html:9
+#: task_manager/templates/task_manager/base.html:20
+msgid "Users"
+msgstr "Пользователи"
+
+#: task_manager/apps/users/models.py:15
+#, fuzzy
+#| msgid "Users"
+msgid "User"
+msgstr "Пользователь"
+
+#: task_manager/apps/users/templates/users/users.html:14
+msgid "User name"
+msgstr "Имя пользователя"
+
+#: task_manager/apps/users/templates/users/users.html:15
+msgid "Full name"
+msgstr "Полное имя"
+
+#: task_manager/apps/users/templates/users/users.html:16
+msgid "Date create"
+msgstr "Дата создания"
+
+#: task_manager/settings.py:146
 msgid "Russian"
 msgstr "Русский язык"
 
-#: task_manager/settings.py:146
+#: task_manager/settings.py:147
 msgid "English"
 msgstr "Английский язык"
 
@@ -31,10 +56,6 @@ msgstr "Английский язык"
 #: task_manager/templates/task_manager/base.html:16
 msgid "Task manager"
 msgstr "Менеджер задач"
-
-#: task_manager/templates/task_manager/base.html:20
-msgid "Users"
-msgstr "Пользователи"
 
 #: task_manager/templates/task_manager/base.html:23
 msgid "Log in"
