@@ -7,17 +7,33 @@
 
     <div class="container wrapper flex-grow-1">
         <h1 class="my-4">{% trans "Users" %}</h1>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>{% trans "User name" %}</th>
-                <th>{% trans "Full name" %}</th>
-                <th>{% trans "Date create" %}</th>
-                <th></th>
-            </tr>
-            </thead>
-        </table>
     </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>{% trans "User name" %}</th>
+            <th>{% trans "Full name" %}</th>
+            <th>{% trans "Date create" %}</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>{{ user.date_joined|date:'d.m.Y' }}</td>
+                <td>
+                    <a href="#">{% trans "Update" %}</a>
+                    <br>
+                    <a href="#">{% trans "Delete" %}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}

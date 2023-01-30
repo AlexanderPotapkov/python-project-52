@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 14:40+0300\n"
+"POT-Creation-Date: 2023-01-30 16:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME Potapkov.a.p@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: task_manager/apps/users/apps.py:8 task_manager/apps/users/models.py:16
 #: task_manager/apps/users/templates/users/users.html:9
-#: task_manager/templates/task_manager/base.html:20
+#: task_manager/templates/task_manager/base.html:21
 msgid "Users"
 msgstr "Пользователи"
 
@@ -33,7 +33,7 @@ msgid "User"
 msgstr "Пользователь"
 
 #: task_manager/apps/users/templates/users/register.html:8
-#: task_manager/templates/task_manager/base.html:24
+#: task_manager/templates/task_manager/base.html:25
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -43,17 +43,25 @@ msgstr "Регистрация"
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: task_manager/apps/users/templates/users/users.html:14
+#: task_manager/apps/users/templates/users/users.html:16
 msgid "User name"
 msgstr "Имя пользователя"
 
-#: task_manager/apps/users/templates/users/users.html:15
+#: task_manager/apps/users/templates/users/users.html:17
 msgid "Full name"
 msgstr "Полное имя"
 
-#: task_manager/apps/users/templates/users/users.html:16
+#: task_manager/apps/users/templates/users/users.html:18
 msgid "Date create"
 msgstr "Дата создания"
+
+#: task_manager/apps/users/templates/users/users.html:30
+msgid "Update"
+msgstr "Обновить"
+
+#: task_manager/apps/users/templates/users/users.html:32
+msgid "Delete"
+msgstr "Удалить"
 
 #: task_manager/settings.py:146
 msgid "Russian"
@@ -64,11 +72,11 @@ msgid "English"
 msgstr "Английский язык"
 
 #: task_manager/templates/task_manager/base.html:11
-#: task_manager/templates/task_manager/base.html:16
+#: task_manager/templates/task_manager/base.html:17
 msgid "Task manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/task_manager/base.html:23
+#: task_manager/templates/task_manager/base.html:24
 msgid "Log in"
 msgstr "Войти"
 
@@ -79,3 +87,13 @@ msgstr "Добро пожаловать в Менеджер Задач!"
 #: task_manager/templates/task_manager/index.html:11
 msgid "Here you can create and manage tasks with tags and statuses."
 msgstr "Здесь вы можете создавать и управлять задачами с тегами и статусами."
+
+#: task_manager/templates/task_manager/login.html:7
+msgid "Login"
+msgstr "Войти"
+
+#: task_manager/templates/task_manager/login.html:11
+#, fuzzy
+#| msgid "Log in"
+msgid "Log In"
+msgstr "Войти"
