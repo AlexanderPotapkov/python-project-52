@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
-from django.urls import reverse
 
 
 class User(AbstractUser):
@@ -14,4 +13,4 @@ class User(AbstractUser):
     class Meta:
         verbose_name = _('User')
         verbose_name_plural = _('Users')
-        ordering = ['date_joined',]
+        ordering = ['date_joined', ]

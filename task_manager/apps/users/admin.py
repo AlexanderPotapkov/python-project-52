@@ -4,7 +4,12 @@ from .models import User
 
 
 class MyUserAdmin(UserAdmin):
-    list_display = ('id', 'username', 'first_name', 'last_name', 'email', 'is_staff', 'date_joined')
+    list_display = ('id', 'username',
+                    'first_name',
+                    'last_name',
+                    'email',
+                    'is_staff',
+                    'date_joined')
     list_display_links = ('id',)
     search_fields = ('username',)
 
