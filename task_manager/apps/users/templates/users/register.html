@@ -1,0 +1,18 @@
+{% extends 'task_manager/base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="container col-7">
+        <h3 class="mb-3 text-center">{% trans "Registration" %}</h3>
+        <form class="form" method="post">
+            {% csrf_token %}
+
+            {% bootstrap_form form %}
+
+            <button class="btn btn-primary" type="submit">{% trans "Register" %}</button>
+        </form>
+    </div>
+
+{% endblock %}
