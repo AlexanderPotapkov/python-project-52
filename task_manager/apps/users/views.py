@@ -17,3 +17,6 @@ class RegisterUser(SuccessMessageMixin, CreateView):
     form_class = RegisterUserForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('login')
+
+
+# class UpdateUser():

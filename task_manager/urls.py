@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import path, include
-from .views import IndexView, LoginUser
+from .views import IndexView, LoginUser, LogoutUser
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +27,5 @@ urlpatterns += i18n_patterns(
     path('', IndexView.as_view(), name='home'),
     path('users/', include('task_manager.apps.users.urls')),
     path('login/', LoginUser.as_view(), name='login'),
-    # path('logout/' logout, name='logout'),
+    path('logout/', LogoutUser.as_view(), name='logout'),
 )

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 16:14+0300\n"
+"POT-Creation-Date: 2023-01-30 17:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME Potapkov.a.p@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,19 +27,15 @@ msgid "Users"
 msgstr "Пользователи"
 
 #: task_manager/apps/users/models.py:15
-#, fuzzy
-#| msgid "Users"
 msgid "User"
 msgstr "Пользователь"
 
 #: task_manager/apps/users/templates/users/register.html:8
-#: task_manager/templates/task_manager/base.html:25
+#: task_manager/templates/task_manager/base.html:30
 msgid "Registration"
 msgstr "Регистрация"
 
 #: task_manager/apps/users/templates/users/register.html:14
-#, fuzzy
-#| msgid "Registration"
 msgid "Register"
 msgstr "Зарегистрироваться"
 
@@ -76,7 +72,11 @@ msgstr "Английский язык"
 msgid "Task manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/task_manager/base.html:24
+#: task_manager/templates/task_manager/base.html:26
+msgid "Log out"
+msgstr "Выйти"
+
+#: task_manager/templates/task_manager/base.html:28
 msgid "Log in"
 msgstr "Войти"
 
@@ -88,12 +88,18 @@ msgstr "Добро пожаловать в Менеджер Задач!"
 msgid "Here you can create and manage tasks with tags and statuses."
 msgstr "Здесь вы можете создавать и управлять задачами с тегами и статусами."
 
-#: task_manager/templates/task_manager/login.html:7
+#: task_manager/templates/task_manager/login.html:8
 msgid "Login"
 msgstr "Войти"
 
-#: task_manager/templates/task_manager/login.html:11
-#, fuzzy
-#| msgid "Log in"
+#: task_manager/templates/task_manager/login.html:12
 msgid "Log In"
 msgstr "Войти"
+
+#: task_manager/views.py:17
+msgid "You have successfully logged in"
+msgstr "Вы успешно вошли в систему"
+
+#: task_manager/views.py:22
+msgid "You have successfully logged out"
+msgstr "Вы успешно вышли из системы"
