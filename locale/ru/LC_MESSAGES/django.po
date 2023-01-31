@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 17:38+0300\n"
+"POT-Creation-Date: 2023-01-31 16:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME Potapkov.a.p@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,24 +20,15 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/apps/users/apps.py:8 task_manager/apps/users/models.py:16
+#: task_manager/apps/users/apps.py:8 task_manager/apps/users/models.py:15
 #: task_manager/apps/users/templates/users/users.html:9
 #: task_manager/templates/task_manager/base.html:21
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/apps/users/models.py:15
+#: task_manager/apps/users/models.py:14
 msgid "User"
 msgstr "Пользователь"
-
-#: task_manager/apps/users/templates/users/register.html:8
-#: task_manager/templates/task_manager/base.html:30
-msgid "Registration"
-msgstr "Регистрация"
-
-#: task_manager/apps/users/templates/users/register.html:14
-msgid "Register"
-msgstr "Зарегистрироваться"
 
 #: task_manager/apps/users/templates/users/users.html:16
 msgid "User name"
@@ -52,12 +43,35 @@ msgid "Date create"
 msgstr "Дата создания"
 
 #: task_manager/apps/users/templates/users/users.html:30
+#: task_manager/apps/users/views.py:36
 msgid "Update"
 msgstr "Обновить"
 
 #: task_manager/apps/users/templates/users/users.html:32
 msgid "Delete"
 msgstr "Удалить"
+
+#: task_manager/apps/users/views.py:26
+#: task_manager/templates/task_manager/base.html:30
+msgid "Registration"
+msgstr "Регистрация"
+
+#: task_manager/apps/users/views.py:27
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: task_manager/apps/users/views.py:35
+#, fuzzy
+msgid "Update user"
+msgstr "Обновить пользователя"
+
+#: task_manager/apps/users/views.py:52
+msgid "You do not have rights to change another user."
+msgstr "У вас нет прав на изменение другого пользователя."
+
+#: task_manager/apps/users/views.py:55
+msgid "You are not authorized! Please sign in."
+msgstr "Вы не авторизованы! Пожалуйста войдите."
 
 #: task_manager/settings.py:146
 msgid "Russian"
