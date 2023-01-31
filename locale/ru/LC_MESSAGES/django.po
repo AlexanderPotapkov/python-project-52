@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-31 16:20+0300\n"
+"POT-Creation-Date: 2023-01-31 17:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME Potapkov.a.p@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,18 @@ msgstr "Пользователи"
 msgid "User"
 msgstr "Пользователь"
 
+#: task_manager/apps/users/templates/users/delete.html:9
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: task_manager/apps/users/templates/users/delete.html:10
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: task_manager/apps/users/templates/users/delete.html:16
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
 #: task_manager/apps/users/templates/users/users.html:16
 msgid "User name"
 msgstr "Имя пользователя"
@@ -43,7 +55,7 @@ msgid "Date create"
 msgstr "Дата создания"
 
 #: task_manager/apps/users/templates/users/users.html:30
-#: task_manager/apps/users/views.py:36
+#: task_manager/apps/users/views.py:38
 msgid "Update"
 msgstr "Обновить"
 
@@ -51,27 +63,38 @@ msgstr "Обновить"
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/apps/users/views.py:26
+#: task_manager/apps/users/views.py:27
+msgid "You have successfully registered."
+msgstr "Вы успешно зарегистрировались."
+
+#: task_manager/apps/users/views.py:28
 #: task_manager/templates/task_manager/base.html:30
 msgid "Registration"
 msgstr "Регистрация"
 
-#: task_manager/apps/users/views.py:27
+#: task_manager/apps/users/views.py:29
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: task_manager/apps/users/views.py:35
-#, fuzzy
+#: task_manager/apps/users/views.py:37
 msgid "Update user"
 msgstr "Обновить пользователя"
 
-#: task_manager/apps/users/views.py:52
+#: task_manager/apps/users/views.py:54 task_manager/apps/users/views.py:85
 msgid "You do not have rights to change another user."
 msgstr "У вас нет прав на изменение другого пользователя."
 
-#: task_manager/apps/users/views.py:55
+#: task_manager/apps/users/views.py:57 task_manager/apps/users/views.py:88
 msgid "You are not authorized! Please sign in."
 msgstr "Вы не авторизованы! Пожалуйста войдите."
+
+#: task_manager/apps/users/views.py:77
+msgid "User deleted successfully."
+msgstr "Пользователь успешно удалён."
+
+#: task_manager/apps/users/views.py:80
+msgid "Unable to delete user."
+msgstr "Невозможно удалить пользователя."
 
 #: task_manager/settings.py:146
 msgid "Russian"
