@@ -16,6 +16,10 @@ lint:
 test:
 	poetry run python manage.py test
 
+test-cov:
+	poetry run coverage run manage.py test
+	poetry run coverage xml
+	poetry run coverage report
 
 PORT ?= 8000
 start:

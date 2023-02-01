@@ -22,14 +22,14 @@ jobs:
           DEBUG: True
         run: |
           make test
-#      - name: code coverage
-#        uses: paambaati/codeclimate-action@v2.7.4
-#        env:
-#          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-#          SECRET_KEY: ${{ secrets.SECRET_KEY }}
-#        with:
-#          coverageCommand: make test-coverage
-#          debug: true
+      - name: code coverage
+        uses: paambaati/codeclimate-action@v2.7.4
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        with:
+          coverageCommand: make test-cov
+          debug: true
       - name: Run linter
         run: |
           make lint
