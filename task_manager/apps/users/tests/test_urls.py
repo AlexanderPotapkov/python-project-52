@@ -5,7 +5,7 @@ from task_manager.apps.users.views import UsersView, \
     RegisterUser, UpdateUser, DeleteUser
 
 
-class TestUrls(SimpleTestCase):
+class TestUsersUrls(SimpleTestCase):
     def test_user_view(self):
         url = reverse('users')
         self.assertEquals(resolve(url).func.view_class, UsersView)
