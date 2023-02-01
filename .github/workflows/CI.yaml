@@ -16,12 +16,12 @@ jobs:
           pip install poetry
           poetry update
           make install
-#      - name: Run tests
-#        env:
-#          SECRET_KEY: ${{ secrets.SECRET_KEY }}
-#          DEBUG: True
-#        run: |
-#          make test
+      - name: Run tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: True
+        run: |
+          make test
 #      - name: code coverage
 #        uses: paambaati/codeclimate-action@v2.7.4
 #        env:

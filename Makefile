@@ -13,6 +13,10 @@ shell:
 lint:
 	poetry run flake8 task_manager
 
+test:
+	poetry run python manage.py test
+
+
 PORT ?= 8000
 start:
 	python manage.py runserver 0.0.0.0:$(PORT)
