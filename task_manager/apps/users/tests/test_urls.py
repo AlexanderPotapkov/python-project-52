@@ -1,7 +1,8 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 
-from task_manager.apps.users.views import UsersView, RegisterUser, UpdateUser, DeleteUser
+from task_manager.apps.users.views import UsersView, \
+    RegisterUser, UpdateUser, DeleteUser
 
 
 class TestUrls(SimpleTestCase):
