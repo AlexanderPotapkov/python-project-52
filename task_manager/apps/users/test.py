@@ -3,9 +3,11 @@ from django.urls import reverse, resolve
 
 from .views import UsersView, RegisterUser, UpdateUser, DeleteUser
 from .models import User
+from .forms import RegisterUserForm
 
 
 class TestUsersUrls(SimpleTestCase):
+
     def test_user_view(self):
         url = reverse('users')
         self.assertEquals(resolve(url).func.view_class, UsersView)
@@ -112,3 +114,19 @@ class UsersViewsTest(TestCase):
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, self.users_url)
         self.assertFalse(user1.username == self.form1['username'])
+
+
+class TestUserForms(SimpleTestCase):
+    databases = '__all__'
+
+    def test_register_form_with_valid_data(self):
+        form = RegisterUserForm(data={
+            'username': 'NewUser',
+            'password1': 'password12345678',
+            'password2': 'password12345678'
+        })
+        self.assertTrue(form.is_valid())
+
+    def test_form_no_data(self):
+        form = RegisterUserForm(data={})
+        self.assertFalse(form.is_valid())
