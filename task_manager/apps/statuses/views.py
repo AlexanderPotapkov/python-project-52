@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+
+class StatusesView(ListView):
+    template_name = 'statuses/statuses.html'
