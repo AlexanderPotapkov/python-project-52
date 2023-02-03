@@ -130,3 +130,4 @@ class TestUserForms(SimpleTestCase):
     def test_form_no_data(self):
         form = RegisterUserForm(data={})
         self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 3)
