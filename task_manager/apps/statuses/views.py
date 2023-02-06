@@ -29,7 +29,7 @@ class UpdateStatus(DataMixin, UpdateView):
                      'button': _('Change')}
 
 
-class DeleteStatus(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+class DeleteStatus(DataMixin, DeleteView):
     model = Status
     template_name = 'crud/delete.html'
     success_url = reverse_lazy('statuses')

@@ -79,6 +79,7 @@ class StatusesViewsTest(TestCase):
         response = self.client.post(self.delete_url)
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, self.statuses_url)
+        self.assertEqual(len(Status.objects.all()), 1)
 
     def test_delete_used_status_POST(self):
         self.status1 = Status.objects.get(pk=1)
@@ -87,3 +88,12 @@ class StatusesViewsTest(TestCase):
         self.assertRedirects(response, self.statuses_url)
         with self.assertRaises(ObjectDoesNotExist):
             Status.objects.get(pk=1)
+
+
+class TestStatusModel(TestCase):
+
+    def test_model(self):
+        self.status = Status.objects.create(
+            name='status',
+        )
+        self.assertEquals(self.status.name, 'status')
