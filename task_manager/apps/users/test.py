@@ -55,7 +55,7 @@ class UsersViewsTest(TestCase):
     def test_register_user_view_GET(self):
         response = self.client.get(self.register_user_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'users/create_and_update.html')
+        self.assertTemplateUsed(response, 'crud/create_and_update.html')
 
     def test_register_user_view_POST(self):
         response = self.client.post(self.register_user_url, self.form1)
@@ -67,7 +67,7 @@ class UsersViewsTest(TestCase):
         self.client.force_login(self.user1)
         response = self.client.get(self.update_user_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'users/create_and_update.html')
+        self.assertTemplateUsed(response, 'crud/create_and_update.html')
 
     def test_update_user_view_POST(self):
         self.client.force_login(self.user1)
@@ -94,7 +94,7 @@ class UsersViewsTest(TestCase):
         self.client.force_login(self.user1)
         response = self.client.get(self.delete_user_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'users/delete.html')
+        self.assertTemplateUsed(response, 'crud/delete.html')
 
     def test_delete_user_POST(self):
         self.client.force_login(self.user1)
