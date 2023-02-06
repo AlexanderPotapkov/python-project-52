@@ -7,6 +7,8 @@
 
     <div class="container wrapper flex-grow-1">
         <h1 class="my-4">Statuses</h1>
+
+        <a href="{% url 'create_status' %}">Create status</a>
     </div>
 
     <table class="table table-striped">
@@ -18,6 +20,20 @@
             <th></th>
         </tr>
         </thead>
+        <tbody>
+        {% for status in statuses %}
+            <tr>
+                <td>{{ status.id }}</td>
+                <td>{{ status.name }}</td>
+                <td>{{ status.date_created|date:'d.m.Y' }}</td>
+                <td>
+                    <a href="{% url 'update_status' status.pk %}">Update</a>
+                    <br>
+                    <a href="{% url 'delete_status' status.pk %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
     </table>
 
 {% endblock %}

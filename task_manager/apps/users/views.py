@@ -10,7 +10,7 @@ from django.db.models import ProtectedError
 
 from task_manager.apps.users.forms import RegisterUserForm
 from .models import User
-from .utils import DataMixin
+from ..users.utils import DataMixin
 
 
 class UsersView(ListView):
@@ -22,9 +22,9 @@ class UsersView(ListView):
 class RegisterUser(SuccessMessageMixin, CreateView):
     model = User
     form_class = RegisterUserForm
-    template_name = 'users/register.html'
+    template_name = 'crud/create_and_update.html'
     success_url = reverse_lazy('login')
-    success_message = _('You have successfully registered.')
+    success_message = _('You have successfully registered')
     extra_context = {'header': _('Registration'),
                      'button': _('Register')}
 
@@ -32,7 +32,7 @@ class RegisterUser(SuccessMessageMixin, CreateView):
 class UpdateUser(DataMixin, UpdateView):
     model = User
     form_class = RegisterUserForm
-    template_name = 'users/register.html'
+    template_name = 'crud/create_and_update.html'
     success_url = reverse_lazy('users')
     extra_context = {'header': _('Update user'),
                      'button': _('Update')}
@@ -43,22 +43,25 @@ class UpdateUser(DataMixin, UpdateView):
         password = self.request.POST['password1']
         user = authenticate(username=username, password=password)
         login(self.request, user)
-        messages.success(self.request, _('User successfully updated.'))
+        messages.success(self.request, _('User successfully updated'))
         return redirect(self.success_url)
 
 
 class DeleteUser(DataMixin, DeleteView):
     model = User
     success_url = reverse_lazy('users')
-    template_name = 'users/delete.html'
+    template_name = 'crud/delete.html'
     login_url = reverse_lazy('login')
+    extra_context = {
+        'title': _('Delete user'),
+    }
 
     def form_valid(self, form):
         success_url = self.get_success_url()
         try:
             self.object.delete()
-            messages.success(self.request, _('User deleted successfully.'))
+            messages.success(self.request, _('User deleted successfully'))
             return redirect(self.success_url)
         except ProtectedError:
-            messages.warning(self.request, _('Unable to delete user.'))
+            messages.warning(self.request, _('Unable to delete user'))
             return redirect(success_url)

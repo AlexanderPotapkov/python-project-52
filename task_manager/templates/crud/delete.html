@@ -6,8 +6,8 @@
 {% block content %}
 
     <div class="container wrapper flex-grow-1">
-        <h3 class="my-4">{% trans "Delete user" %}</h3>
-        <p>{% trans "Are you sure you want to delete" %} {{ user.first_name}} {{ user.last_name }}?</p>
+        <h3 class="my-4">{{ title }}</h3>
+        <p>{% trans "Are you sure you want to delete" %} {{ object }}?</p>
         <form method="post">
             {% csrf_token %}
 
