@@ -74,7 +74,7 @@ class UsersViewsTest(TestCase):
         response = self.client.post(self.update_user_url, self.form1)
         updated_user = User.objects.get(pk=1)
         self.assertRedirects(response, self.users_url)
-        self.assertEqual(updated_user.username, 'NewUser')
+        self.assertEqual(updated_user.username, self.form1['username'])
 
     def test_update_user_without_permission_GET(self):
         self.client.force_login(self.user2)

@@ -174,6 +174,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
 
+FIXTURE_DIRS = [os.path.join(BASE_DIR, 'fixtures')]
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

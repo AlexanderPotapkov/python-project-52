@@ -7,12 +7,12 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.db.models import ProtectedError
 
-from .models import Statuses
+from .models import Status
 from .utils import DataMixin
 
 
 class StatusesView(ListView):
-    model = Statuses
+    model = Status
     context_object_name = 'statuses'
     template_name = 'statuses/statuses.html'
 
@@ -30,7 +30,7 @@ class UpdateStatus(DataMixin, UpdateView):
 
 
 class DeleteStatus(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
-    model = Statuses
+    model = Status
     template_name = 'crud/delete.html'
     success_url = reverse_lazy('statuses')
     extra_context = {
