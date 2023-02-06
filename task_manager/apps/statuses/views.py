@@ -48,8 +48,10 @@ class DeleteStatus(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         success_url = self.get_success_url()
         try:
             self.object.delete()
-            messages.success(self.request, _('The status is successfully deleted'))
+            messages.success(self.request,
+                             _('The status is successfully deleted'))
             return redirect(self.success_url)
         except ProtectedError:
-            messages.warning(self.request, _('Unable to delete status, because it is used'))
+            messages.warning(self.request,
+                             _('Unable to delete status, because it is used'))
             return redirect(success_url)
