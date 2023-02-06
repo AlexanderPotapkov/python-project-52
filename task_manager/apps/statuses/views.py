@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.db.models import ProtectedError
 
 from .models import Statuses
+from .utils import DataMixin
 
 
 class StatusesView(ListView):
@@ -16,21 +17,13 @@ class StatusesView(ListView):
     template_name = 'statuses/statuses.html'
 
 
-class CreateStatus(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    model = Statuses
-    fields = ['name']
-    template_name = 'crud/create_and_update.html'
-    success_url = reverse_lazy('statuses')
+class CreateStatus(DataMixin, CreateView):
     success_message = _('Status created successfully')
     extra_context = {'header': _('Create status'),
                      'button': _('Create')}
 
 
-class UpdateStatus(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    model = Statuses
-    fields = ['name']
-    template_name = 'crud/create_and_update.html'
-    success_url = reverse_lazy('statuses')
+class UpdateStatus(DataMixin, UpdateView):
     success_message = _('Status changed successfully')
     extra_context = {'header': _('Change status'),
                      'button': _('Change')}
