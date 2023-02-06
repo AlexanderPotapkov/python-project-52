@@ -6,17 +6,17 @@
 {% block content %}
 
     <div class="container wrapper flex-grow-1">
-        <h1 class="my-4">Statuses</h1>
+        <h1 class="my-4">{% trans "Statuses" %}</h1>
 
-        <a href="{% url 'create_status' %}">Create status</a>
+        <a href="{% url 'create_status' %}">{% trans "Create status" %}</a>
     </div>
 
     <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
-            <th>User name</th>
-            <th>Date create</th>
+            <th>{% trans "User name" %}</th>
+            <th>{% trans "Date create" %}</th>
             <th></th>
         </tr>
         </thead>
@@ -27,9 +27,9 @@
                 <td>{{ status.name }}</td>
                 <td>{{ status.date_created|date:'d.m.Y' }}</td>
                 <td>
-                    <a href="{% url 'update_status' status.pk %}">Update</a>
+                    <a href="{% url 'update_status' status.pk %}">{% trans "Update" %}"</a>
                     <br>
-                    <a href="{% url 'delete_status' status.pk %}">Delete</a>
+                    <a href="{% url 'delete_status' status.pk %}">{% trans "Delete" %}</a>
                 </td>
             </tr>
         {% endfor %}

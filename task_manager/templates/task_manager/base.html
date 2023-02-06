@@ -22,13 +22,13 @@
                 </li>
                 {% if request.user.is_authenticated %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'statuses' %}">Statuses</a>
+                        <a class="nav-link" href="{% url 'statuses' %}">{% trans "Statuses" %}</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Tags</a>
+                        <a class="nav-link" href="#">{% trans "Tags" %}</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Tasks</a>
+                        <a class="nav-link" href="#">{% trans "Tasks" %}</a>
                     </li>
                 {% endif %}
             </ul>

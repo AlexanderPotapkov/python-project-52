@@ -21,7 +21,7 @@ class CreateStatus(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     fields = ['name']
     template_name = 'crud/create_and_update.html'
     success_url = reverse_lazy('statuses')
-    success_message = _('The status is successfully created')
+    success_message = _('Status created successfully')
     extra_context = {'header': _('Create status'),
                      'button': _('Create')}
 
@@ -31,7 +31,7 @@ class UpdateStatus(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     fields = ['name']
     template_name = 'crud/create_and_update.html'
     success_url = reverse_lazy('statuses')
-    success_message = _('The status is successfully changed')
+    success_message = _('Status changed successfully')
     extra_context = {'header': _('Change status'),
                      'button': _('Change')}
 
@@ -49,7 +49,7 @@ class DeleteStatus(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         try:
             self.object.delete()
             messages.success(self.request,
-                             _('The status is successfully deleted'))
+                             _('Status deleted successfully'))
             return redirect(self.success_url)
         except ProtectedError:
             messages.warning(self.request,

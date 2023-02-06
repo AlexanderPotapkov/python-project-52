@@ -4,7 +4,8 @@ from .models import User
 
 
 class MyUserAdmin(UserAdmin):
-    list_display = ('id', 'username',
+    list_display = ('id',
+                    'username',
                     'first_name',
                     'last_name',
                     'email',
