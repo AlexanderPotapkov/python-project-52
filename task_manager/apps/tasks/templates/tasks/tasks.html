@@ -1,0 +1,43 @@
+{% extends 'task_manager/base.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="container wrapper flex-grow-1">
+        <h1 class="my-4">Tasks</h1>
+
+        <a href="#">Create task</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Executor</th>
+            <th>Date create</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.executor }}</td>
+                <td>{{ task.date_create|date:'d.m.Y' }}</td>
+                <td>
+                    <a href="#">Update</a>
+                    <br>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
