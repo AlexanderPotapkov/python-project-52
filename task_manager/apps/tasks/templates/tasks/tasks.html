@@ -33,7 +33,7 @@
                 <td>
                     <a href="{% url "update_task" task.pk %}">Update</a>
                     <br>
-                    <a href="#">Delete</a>
+                    <a href="{% url "delete_task" task.pk %}">Delete</a>
                 </td>
             </tr>
         {% endfor %}

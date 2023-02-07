@@ -1,6 +1,9 @@
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.utils.translation import gettext as _
 from django.contrib import messages
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 from .models import Task
 from .utils import DataMixin
@@ -20,11 +23,34 @@ class CreateTask(DataMixin, CreateView):
         self.object = form.save(commit=False)
         self.object.author = self.request.user
         self.object.save()
-        messages.success(self.request, _('Task created successfully'))
+        messages.success(self.request, _('The task created successfully'))
         return super(CreateTask, self).form_valid(form)
 
 
 class UpdateTask(DataMixin, UpdateView):
-    success_message = _('Task changed successfully')
+    success_message = _('The task changed successfully')
     extra_context = {'header': _('Change task'),
                      'button': _('Change')}
+
+
+class DeleteTask(DataMixin, UserPassesTestMixin, DeleteView):
+    model = Task
+    login_url = 'login'
+    success_url = reverse_lazy('tasks')
+    template_name = 'crud/delete.html'
+    success_message = _('The task deleted successfully')
+    extra_context = {'title': _('Delete task')}
+
+    def test_func(self):
+        task = self.get_object()
+        return self.request.user.id == task.author.id
+
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            message = _('The task can only be deleted by its author')
+            url = reverse_lazy('tasks')
+        else:
+            message = _('You need to authenticated')
+            url = self.login_url
+        messages.warning(self.request, message)
+        return redirect(url)
