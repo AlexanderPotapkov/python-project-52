@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from django.utils.translation import gettext as _
 from django.contrib import messages
 
@@ -22,3 +22,9 @@ class CreateTask(DataMixin, CreateView):
         self.object.save()
         messages.success(self.request, _('Task created successfully'))
         return super(CreateTask, self).form_valid(form)
+
+
+class UpdateTask(DataMixin, UpdateView):
+    success_message = _('Task changed successfully')
+    extra_context = {'header': _('Change task'),
+                     'button': _('Change')}
