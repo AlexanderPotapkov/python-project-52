@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="container wrapper flex-grow-1">
-        <h1 class="my-4">Task view</h1>
+        <h1 class="my-4">{% trans "Task view" %}</h1>
         <div class="card">
             <div class="card-header bg-dark text-white">
                 <h2>{{ task.name }}</h2>
@@ -15,24 +15,24 @@
                 <hr>
                 <div class="container">
                     <div class="row p-1">
-                        <div class="col">Author</div>
+                        <div class="col">{% trans "Author" %}</div>
                         <div class="col">{{ task.author }}</div>
                     </div>
                     <div class="row p-1">
-                        <div class="col">Executor</div>
+                        <div class="col">{% trans "Executor" %}</div>
                         <div class="col">{{ task.executor }}</div>
                     </div>
                     <div class="row p-1">
-                        <div class="col">Status</div>
+                        <div class="col">{% trans "Status" %}</div>
                         <div class="col">{{ task.status }}</div>
                     </div>
                     <div class="row p-1">
-                        <div class="col">Date create</div>
+                        <div class="col">{% trans "Date create" %}</div>
                         <div class="col">{{ task.date_create|date:'d.m.Y' }}</div>
                     </div>
                     <div class="row p-1">
                         <div class="col">
-                            <h6>Tags:</h6>
+                            <h6>{% trans "Tags:" %}</h6>
                             <ul>
                                 <li>{{ task.tags }}</li>
                             </ul>
@@ -40,9 +40,9 @@
                     </div>
                     <div class="row p-1">
                         <div class="col">
-                            <a href="{% url "update_task" task.pk %}">Update</a>
+                            <a href="{% url "update_task" task.pk %}">{% trans "Update" %}</a>
                             <br>
-                            <a href="{% url "delete_task" task.pk %}">Delete</a>
+                            <a href="{% url "delete_task" task.pk %}">{% trans "Delete" %}</a>
                         </div>
                     </div>
                 </div>
