@@ -34,7 +34,7 @@ class CreateTask(DataMixin, CreateView):
 
 
 class UpdateTask(DataMixin, UpdateView):
-    fields = ['name', 'description', 'status', 'executor', 'tags']
+    fields = ['name', 'description', 'status', 'executor', 'labels']
     success_message = _('The task changed successfully')
     extra_context = {'header': _('Change task'),
                      'button': _('Change')}

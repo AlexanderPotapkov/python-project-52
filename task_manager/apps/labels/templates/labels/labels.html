@@ -29,7 +29,7 @@
                 <td>
                     <a href="{% url "update_label" label.pk %}">Update</a>
                     <br>
-                    <a href="#">Delete</a>
+                    <a href="{% url "delete_label" label.pk %}">Delete</a>
                 </td>
             </tr>
         {% endfor %}
