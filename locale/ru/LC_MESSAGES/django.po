@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 14:50+0300\n"
+"POT-Creation-Date: 2023-02-10 16:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME Potapkov.a.p@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgid "User name"
 msgstr "Имя пользователя"
 
 #: task_manager/apps/statuses/templates/statuses/statuses.html:19
-#: task_manager/apps/tasks/models.py:16
+#: task_manager/apps/tasks/models.py:22
 #: task_manager/apps/tasks/templates/tasks/task_view.html:30
 #: task_manager/apps/tasks/templates/tasks/tasks.html:22
 #: task_manager/apps/users/templates/users/users.html:18
@@ -65,7 +65,7 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: task_manager/apps/statuses/utils.py:19 task_manager/apps/tasks/utils.py:19
-#: task_manager/apps/tasks/views.py:59
+#: task_manager/apps/tasks/views.py:60
 msgid "You need to authenticated"
 msgstr "Вам необходимо авторизоваться"
 
@@ -73,7 +73,7 @@ msgstr "Вам необходимо авторизоваться"
 msgid "Status created successfully"
 msgstr "Статус успешно создан"
 
-#: task_manager/apps/statuses/views.py:21 task_manager/apps/tasks/views.py:25
+#: task_manager/apps/statuses/views.py:21 task_manager/apps/tasks/views.py:26
 msgid "Create"
 msgstr "Создать"
 
@@ -85,7 +85,7 @@ msgstr "Статус успешно изменён"
 msgid "Change status"
 msgstr "Изменить статус"
 
-#: task_manager/apps/statuses/views.py:27 task_manager/apps/tasks/views.py:39
+#: task_manager/apps/statuses/views.py:27 task_manager/apps/tasks/views.py:40
 msgid "Change"
 msgstr "Изменить"
 
@@ -107,67 +107,67 @@ msgstr "Невозможно удалить статус, потому что о
 msgid "Tasks"
 msgstr "Задачи"
 
-#: task_manager/apps/tasks/models.py:11
+#: task_manager/apps/tasks/models.py:12
 msgid "Description"
 msgstr "Описание"
 
-#: task_manager/apps/tasks/models.py:12
+#: task_manager/apps/tasks/models.py:14
 #: task_manager/apps/tasks/templates/tasks/task_view.html:26
 #: task_manager/apps/tasks/templates/tasks/tasks.html:19
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/apps/tasks/models.py:13
+#: task_manager/apps/tasks/models.py:16
 #: task_manager/apps/tasks/templates/tasks/task_view.html:18
 #: task_manager/apps/tasks/templates/tasks/tasks.html:20
 msgid "Author"
 msgstr "Автор"
 
-#: task_manager/apps/tasks/models.py:14
+#: task_manager/apps/tasks/models.py:19
 #: task_manager/apps/tasks/templates/tasks/task_view.html:22
 #: task_manager/apps/tasks/templates/tasks/tasks.html:21
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/apps/tasks/models.py:17
+#: task_manager/apps/tasks/models.py:24
 #: task_manager/templates/task_manager/base.html:28
-msgid "Tags"
-msgstr "Теги"
+msgid "Labels"
+msgstr "Метки"
 
 #: task_manager/apps/tasks/templates/tasks/task_view.html:8
 msgid "Task view"
 msgstr "Просмотр задачи"
 
 #: task_manager/apps/tasks/templates/tasks/task_view.html:35
-msgid "Tags:"
-msgstr "Теги:"
+msgid "Labels:"
+msgstr "Метки:"
 
 #: task_manager/apps/tasks/templates/tasks/tasks.html:11
-#: task_manager/apps/tasks/views.py:24
+#: task_manager/apps/tasks/views.py:25
 msgid "Create task"
 msgstr "Создать задачу"
 
-#: task_manager/apps/tasks/views.py:31
+#: task_manager/apps/tasks/views.py:32
 msgid "The task created successfully"
 msgstr "Задача успешно создана"
 
-#: task_manager/apps/tasks/views.py:37
+#: task_manager/apps/tasks/views.py:38
 msgid "The task changed successfully"
 msgstr "Задача успешно изменена"
 
-#: task_manager/apps/tasks/views.py:38
+#: task_manager/apps/tasks/views.py:39
 msgid "Change task"
 msgstr "Изменить задачу"
 
-#: task_manager/apps/tasks/views.py:47
+#: task_manager/apps/tasks/views.py:48
 msgid "The task deleted successfully"
 msgstr "Задача успешно удалена"
 
-#: task_manager/apps/tasks/views.py:48
+#: task_manager/apps/tasks/views.py:49
 msgid "Delete task"
 msgstr "Удалить задачу"
 
-#: task_manager/apps/tasks/views.py:56
+#: task_manager/apps/tasks/views.py:57
 msgid "The task can only be deleted by its author"
 msgstr "Задача может быть удалена только её автором"
 
