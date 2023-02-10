@@ -1,0 +1,53 @@
+{% extends 'task_manager/base.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+    <div class="container wrapper flex-grow-1">
+        <h1 class="my-4">Task view</h1>
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h2>{{ task.name }}</h2>
+            </div>
+            <div class="card-body bg-light">
+                <p>{{ task.description }}</p>
+                <hr>
+                <div class="container">
+                    <div class="row p-1">
+                        <div class="col">Author</div>
+                        <div class="col">{{ task.author }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">Executor</div>
+                        <div class="col">{{ task.executor }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">Status</div>
+                        <div class="col">{{ task.status }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">Date create</div>
+                        <div class="col">{{ task.date_create|date:'d.m.Y' }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">
+                            <h6>Tags:</h6>
+                            <ul>
+                                <li>{{ task.tags }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">
+                            <a href="{% url "update_task" task.pk %}">Update</a>
+                            <br>
+                            <a href="{% url "delete_task" task.pk %}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -17,6 +17,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Status</th>
+            <th>Author</th>
             <th>Executor</th>
             <th>Date create</th>
             <th></th>
@@ -26,8 +27,9 @@
         {% for task in tasks %}
             <tr>
                 <td>{{ task.id }}</td>
-                <td>{{ task.name }}</td>
+                <td><a href="{% url "show_task" task.pk %}">{{ task.name }}</a></td>
                 <td>{{ task.status }}</td>
+                <td>{{ task.author }}</td>
                 <td>{{ task.executor }}</td>
                 <td>{{ task.date_create|date:'d.m.Y' }}</td>
                 <td>

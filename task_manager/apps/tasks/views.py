@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -9,10 +9,15 @@ from .models import Task
 from .utils import DataMixin
 
 
-class TasksView(ListView):
+class TasksView(DataMixin, ListView):
     model = Task
     context_object_name = 'tasks'
     template_name = 'tasks/tasks.html'
+
+
+class ShowTask(DataMixin, DetailView):
+    template_name = 'tasks/task_view.html'
+    context_object_name = 'task'
 
 
 class CreateTask(DataMixin, CreateView):
@@ -28,6 +33,7 @@ class CreateTask(DataMixin, CreateView):
 
 
 class UpdateTask(DataMixin, UpdateView):
+    fields = ['name', 'description', 'status', 'executor', 'tags']
     success_message = _('The task changed successfully')
     extra_context = {'header': _('Change task'),
                      'button': _('Change')}
