@@ -1,0 +1,28 @@
+[
+  {
+    "model": "tasks.task",
+    "pk": 1,
+    "fields": {
+      "name": "task_1",
+      "description": "",
+      "status": 1,
+      "author": 1,
+      "executor": 1,
+      "date_create": "2023-01-31T05:54:50.947Z",
+      "tags": "tag_1"
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 2,
+    "fields": {
+      "name": "task_2",
+      "description": "",
+      "status": 2,
+      "author": 2,
+      "executor": 2,
+      "date_create": "2023-01-31T05:54:52.947Z",
+      "tags": "tag_2"
+    }
+  }
+]

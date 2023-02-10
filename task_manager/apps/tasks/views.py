@@ -1,4 +1,5 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import ListView, CreateView,\
+    UpdateView, DeleteView, DetailView
 from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin

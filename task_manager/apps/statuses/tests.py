@@ -9,7 +9,7 @@ from ..users.models import User
 
 class TestStatusesUrls(SimpleTestCase):
 
-    def test_user_view(self):
+    def test_status_view(self):
         url = reverse('statuses')
         self.assertEquals(resolve(url).func.view_class, StatusesView)
 
@@ -17,11 +17,11 @@ class TestStatusesUrls(SimpleTestCase):
         url = reverse('create_status')
         self.assertEquals(resolve(url).func.view_class, CreateStatus)
 
-    def test_user_update(self):
+    def test_status_update(self):
         url = reverse('update_status', args='1')
         self.assertEquals(resolve(url).func.view_class, UpdateStatus)
 
-    def test_user_delete(self):
+    def test_status_delete(self):
         url = reverse('delete_status', args='1')
         self.assertEquals(resolve(url).func.view_class, DeleteStatus)
 
