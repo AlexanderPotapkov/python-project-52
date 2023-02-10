@@ -5,14 +5,14 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.utils.translation import gettext as _
 
-from .models import Status
+from .models import Label
 
 
 class DataMixin(LoginRequiredMixin, SuccessMessageMixin):
-    model = Status
+    model = Label
     fields = '__all__'
     template_name = 'crud/create_and_update.html'
-    success_url = reverse_lazy('statuses')
+    success_url = reverse_lazy('labels')
     login_url = 'login'
 
     def handle_no_permission(self):

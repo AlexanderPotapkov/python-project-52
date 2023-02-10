@@ -1,0 +1,40 @@
+{% extends 'task_manager/base.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="container wrapper flex-grow-1">
+        <h1 class="my-4">Labels</h1>
+        <a href="{% url "create_label" %}">Create label</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date create</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for label in labels %}
+            <tr>
+                <td>{{ label.id }}</td>
+                <td>{{ label.name }}</td>
+                <td>{{ label.date_create|date:'d.m.Y' }}</td>
+                <td>
+                    <a href="#">Update</a>
+                    <br>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% endblock %}

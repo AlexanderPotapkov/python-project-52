@@ -3,6 +3,7 @@ from django.utils.translation import gettext as _
 
 from ..users.models import User
 from ..statuses.models import Status
+from ..labels.models import Label
 
 
 class Task(models.Model):
@@ -20,8 +21,14 @@ class Task(models.Model):
                                  related_name='executor')
     date_create = models.DateTimeField(auto_now_add=True,
                                        verbose_name=_('Date create'))
-    labels = models.CharField(max_length=100, blank=True,
-                              verbose_name=_('Labels'))
+    labels = models.ManyToManyField(Label, blank=True,
+                                    through='LabelForTask',
+                                    verbose_name=_('Labels'))
 
     def __str__(self):
         return self.name
+
+
+class LabelForTask(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True)
+    labels = models.ForeignKey(Label, on_delete=models.PROTECT, null=True)

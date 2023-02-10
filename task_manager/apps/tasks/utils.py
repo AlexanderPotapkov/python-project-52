@@ -10,7 +10,7 @@ from .models import Task
 
 class DataMixin(LoginRequiredMixin, SuccessMessageMixin):
     model = Task
-    fields = ['name', 'description', 'author', 'status', 'executor', 'labels']
+    fields = '__all__'
     template_name = 'crud/create_and_update.html'
     success_url = reverse_lazy('tasks')
     login_url = 'login'
