@@ -56,6 +56,7 @@ class TestTasksViews(TestCase):
         self.tasks_url = reverse('tasks')
         self.task1 = Task.objects.get(pk=1)
         self.create_url = reverse('create_task')
+        self.show_task_url = reverse('show_task', args=[1])
         self.update_url = reverse('update_task', args=[1])
         self.delete_url = reverse('delete_task', args=[1])
         self.form1 = {'name': 'New task',
@@ -73,6 +74,21 @@ class TestTasksViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertQuerysetEqual(response_tasks, [self.task1, self.task2])
         self.assertTemplateUsed(response, 'tasks/tasks.html')
+
+    def test_show_task(self):
+        self.client.force_login(self.user1)
+        response = self.client.get(self.show_task_url)
+        descriptions = response.context['task']
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'tasks/task_view.html')
+        self.assertQuerysetEqual([descriptions.name, descriptions.author,
+                                  descriptions.executor,
+                                  descriptions.description,
+                                  descriptions.status,
+                                  descriptions.date_create],
+                                 [self.task1.name, self.task1.author,
+                                  self.task1.executor, self.task1.description,
+                                  self.task1.status, self.task1.date_create])
 
     def test_create_task_GET(self):
         self.client.force_login(self.user1)
