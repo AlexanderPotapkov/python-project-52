@@ -1,7 +1,10 @@
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse, resolve
+from django.core.exceptions import ObjectDoesNotExist
 
 from .views import TasksView, ShowTask, CreateTask, UpdateTask, DeleteTask
+from ..users.models import User
+from ..tasks.models import Task
 
 
 class TestTagsUrls(SimpleTestCase):
@@ -41,3 +44,85 @@ class TestTasksViewsWithoutAuth(TestCase):
         for url in self.urls:
             response = self.client.get(url)
             self.assertRedirects(response, self.login)
+
+
+class TestTasksViews(TestCase):
+    fixtures = ['users.json', 'tasks.json', 'statuses.json', 'labels.json']
+
+    def setUp(self):
+        self.login_url = reverse('login')
+        self.user1 = User.objects.get(pk=1)
+        self.user2 = User.objects.get(pk=2)
+        self.tasks_url = reverse('tasks')
+        self.task1 = Task.objects.get(pk=1)
+        self.create_url = reverse('create_task')
+        self.update_url = reverse('update_task', args=[1])
+        self.delete_url = reverse('delete_task', args=[1])
+        self.form1 = {'name': 'New task',
+                      'status': 1,
+                      'description': 'description',
+                      'author': 1,
+                      'executor': 1,
+                      'label': [1, 2, 3]}
+
+    def test_tasks_view_GET(self):
+        self.client.force_login(self.user1)
+        self.task2 = Task.objects.get(pk=2)
+        response = self.client.get(self.tasks_url)
+        response_tasks = list(response.context['tasks'])
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(response_tasks, [self.task1, self.task2])
+        self.assertTemplateUsed(response, 'tasks/tasks.html')
+
+    def test_create_task_GET(self):
+        self.client.force_login(self.user1)
+        response = self.client.get(self.create_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'crud/create_and_update.html')
+
+    def test_create_task_POST(self):
+        self.client.force_login(self.user1)
+        response = self.client.post(self.create_url, self.form1)
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, self.tasks_url)
+        self.assertTrue(Task.objects.get(pk=3))
+
+    def test_update_task_GET(self):
+        self.client.force_login(self.user1)
+        response = self.client.get(self.update_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'crud/create_and_update.html')
+
+    def test_update_task_POST(self):
+        self.client.force_login(self.user1)
+        response = self.client.post(self.update_url, self.form1)
+        self.task = Task.objects.get(pk=1)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(self.task.name, self.form1['name'])
+        self.assertRedirects(response, self.tasks_url)
+
+    def test_delete_self_task_GET(self):
+        self.client.force_login(self.user1)
+        response = self.client.get(self.delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'crud/delete.html')
+
+    def test_delete_self_task_POST(self):
+        self.client.force_login(self.user1)
+        response = self.client.post(self.delete_url)
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, self.tasks_url)
+        self.assertEqual(len(Task.objects.all()), 1)
+        with self.assertRaises(ObjectDoesNotExist):
+            Task.objects.get(pk=3)
+
+    def delete_not_self_task_GET(self):
+        self.client.force_login(self.user2)
+        response = self.client.get(self.delete_url)
+        self.assertRedirects(response, self.tasks_url)
+
+    def delete_not_self_task_POST(self):
+        self.client.force_login(self.user2)
+        response = self.client.post(self.delete_url)
+        self.assertRedirects(response, self.tasks_url)
+        self.assertEqual(len(Task.objects.all()), 2)

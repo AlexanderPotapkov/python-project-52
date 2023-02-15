@@ -8,8 +8,7 @@
       "status": 1,
       "author": 1,
       "executor": 1,
-      "date_create": "2023-01-31T05:54:50.947Z",
-      "labels": "tag_1"
+      "date_create": "2023-01-31T05:54:50.947Z"
     }
   },
   {
@@ -21,8 +20,23 @@
       "status": 2,
       "author": 2,
       "executor": 2,
-      "date_create": "2023-01-31T05:54:52.947Z",
-      "labels": "tag_2"
+      "date_create": "2023-01-31T05:54:52.947Z"
+    }
+  },
+  {
+    "model": "tasks.labelfortask",
+    "pk": 1,
+    "fields": {
+      "task": 1,
+      "labels": 1
+    }
+  },
+  {
+    "model": "tasks.labelfortask",
+    "pk": 2,
+    "fields": {
+      "task": 2,
+      "labels": 2
     }
   }
 ]
