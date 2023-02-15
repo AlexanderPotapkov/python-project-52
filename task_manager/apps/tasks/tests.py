@@ -7,7 +7,7 @@ from ..users.models import User
 from ..tasks.models import Task
 
 
-class TestTagsUrls(SimpleTestCase):
+class TestTasksUrls(SimpleTestCase):
 
     def test_task_view(self):
         url = reverse('tasks')

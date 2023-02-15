@@ -9,7 +9,7 @@ from .models import Label
 from .utils import DataMixin
 
 
-class LabelsView(ListView):
+class LabelsView(DataMixin, ListView):
     model = Label
     context_object_name = 'labels'
     template_name = 'labels/labels.html'
