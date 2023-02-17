@@ -20,6 +20,7 @@ jobs:
         env:
           DB_ENGINE: SQLite
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          ROLLBAR_KEY: ${{ secrets.ROLLBAR_KEY }}
           DEBUG: True
         run: |
           make test
@@ -29,6 +30,7 @@ jobs:
           DB_ENGINE: SQLite
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          ROLLBAR_KEY: ${{ secrets.ROLLBAR_KEY }}
         with:
           coverageCommand: make test-cov
           debug: true

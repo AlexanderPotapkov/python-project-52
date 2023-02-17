@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import dj_database_url
 import os
+import rollbar
 
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'task_manager.apps.tasks.apps.TasksConfig',
     'task_manager.apps.labels.apps.LabelsConfig',
     'django_filters',
+    'rollbar'
 ]
 
 MIDDLEWARE = [
@@ -68,7 +70,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
+
+ROLLBAR = {
+    'access_token': os.getenv('ROLLBAR'),
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
+
+rollbar.init(**ROLLBAR)
 
 ROOT_URLCONF = 'task_manager.urls'
 
