@@ -1,18 +1,21 @@
-from django.views.generic import ListView, CreateView,\
+from django.views.generic import ListView, CreateView, \
     UpdateView, DeleteView, DetailView
 from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
+from django_filters.views import FilterView
 
 from .models import Task
 from .utils import DataMixin
+from .filters import TaskFilter
 
 
-class TasksView(DataMixin, ListView):
+class TasksView(DataMixin, FilterView):
     model = Task
     context_object_name = 'tasks'
+    filterset_class = TaskFilter
     template_name = 'tasks/tasks.html'
 
 

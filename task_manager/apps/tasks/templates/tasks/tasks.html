@@ -2,6 +2,8 @@
 
 {% load bootstrap4 %}
 {% load i18n %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_css %}
 
 {% block content %}
 
@@ -12,13 +14,12 @@
     </div>
 
     <div class="card mb-3">
-        <div class="card-body bg-light">
-            <form class="form-inline center" method="get">
-                <div class="form-group is-valid">
-                    <label for="id_status">Status</label>
-                </div>
-            </form>
-        </div>
+    <div class="card-body bg-light">
+    <form method="get">
+        {% bootstrap_form filter.form %}
+        <button type="submit" class="btn btn-primary">Show</button>
+    </form>
+    </div>
     </div>
 
     <table class="table table-striped">
