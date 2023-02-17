@@ -73,8 +73,10 @@ MIDDLEWARE = [
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
+ROLLBAR_KEY = os.getenv('ROLLBAR_KEY')
+
 ROLLBAR = {
-    'access_token': os.getenv('ROLLBAR'),
+    'access_token': ROLLBAR_KEY,
     'environment': 'development' if DEBUG else 'production',
     'code_version': '1.0',
     'root': BASE_DIR,
@@ -192,34 +194,39 @@ LOGIN_REDIRECT_URL = '/'
 FIXTURE_DIRS = [os.path.join(BASE_DIR, 'fixtures')]
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'console': {
-            'format': '{levelname} {asctime} {name} {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
         },
-        'file': {
-            'format': '{levelname} {asctime} {name} {message}',
-            'style': '{',
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue'
         }
     },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'console'
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            'filters': ['require_debug_true'],
+            "class": "logging.StreamHandler",
         },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'formatter': 'file',
-            'filename': 'debug.log'
-        }
+        'rollbar': {
+            'filters': ['require_debug_false'],
+            'access_token': ROLLBAR_KEY,
+            'environment': 'production',
+            'class': 'rollbar.logger.RollbarHandler'
+        },
     },
-    'loggers': {
-        '': {
-            'level': 'DEBUG',
-            'handlers': ['console', 'file']
-        }
+    "loggers": {
+        "django": {
+            "handlers": ["console", 'rollbar'],
+            "level": "INFO",
+            "propagate": True
+        },
+        "task_manager": {
+            "handlers": ["console", 'rollbar'],
+            "level": "DEBUG",
+            "propagate": True
+        },
     }
 }
