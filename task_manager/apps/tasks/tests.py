@@ -142,3 +142,27 @@ class TestTasksViews(TestCase):
         response = self.client.post(self.delete_url)
         self.assertRedirects(response, self.tasks_url)
         self.assertEqual(len(Task.objects.all()), 2)
+
+    def test_filter(self):
+        self.client.force_login(self.user1)
+        content_form_1 = f'{self.tasks_url}' \
+                         '?status=1&executor=1&label='
+        response = self.client.get(content_form_1)
+        tasks_list = response.context['tasks']
+        self.assertEqual(len(tasks_list), 1)
+        task = tasks_list[0]
+        self.assertEqual(task.name, 'task_1')
+        self.assertEqual(task.executor.id, 1)
+        self.assertEqual(task.status.id, 1)
+        self.assertEqual(task.author.id, 1)
+
+    def test_filter_self_tasks(self):
+        self.client.force_login(self.user1)
+        content_form_2 = f'{self.tasks_url}' \
+                         '?self_task=on'
+        response_2 = self.client.get(content_form_2)
+        tasks_list = response_2.context['tasks']
+        self.assertEqual(len(tasks_list), 1)
+        task = tasks_list[0]
+        self.assertEqual(task.name, 'task_1')
+        self.assertEqual(task.author.id, 1)

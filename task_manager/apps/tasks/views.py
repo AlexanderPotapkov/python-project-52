@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, \
+from django.views.generic import CreateView, \
     UpdateView, DeleteView, DetailView
 from django.utils.translation import gettext as _
 from django.contrib import messages

@@ -13,6 +13,7 @@ class IndexView(TemplateView):
 
 class LoginUser(SuccessMessageMixin, LoginView):
     form_class = AuthenticationForm
+    success_url = reverse_lazy('home')
     template_name = 'task_manager/login.html'
     success_message = _('You have successfully logged in')
 

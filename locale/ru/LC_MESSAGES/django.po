@@ -307,8 +307,6 @@ msgid "Log in"
 msgstr "Войти"
 
 #: task_manager/templates/task_manager/base.html:55
-#, fuzzy
-#| msgid "Welcome to my page on "
 msgid "Visit my page on "
 msgstr "Посетите мою страницу на "
 

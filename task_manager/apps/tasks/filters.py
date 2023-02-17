@@ -31,11 +31,11 @@ class TaskFilter(FilterSet):
                                             'title_id': 'id_executor'}))
 
     labels = ModelChoiceFilter(queryset=Label.objects.all(),
-                              label=_('Label'),
-                              widget=forms.Select(
-                                  attrs={'name': 'label',
-                                         'class': 'custom-select d-block',
-                                         'title_id': 'id_label'}))
+                               label=_('Label'),
+                               widget=forms.Select(
+                                   attrs={'name': 'label',
+                                          'class': 'custom-select d-block',
+                                          'title_id': 'id_label'}))
 
     self_task = BooleanFilter(label=_('Only your tasks'),
                               widget=forms.widgets.CheckboxInput(
