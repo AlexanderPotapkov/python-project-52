@@ -66,11 +66,11 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROLLBAR_KEY = os.getenv('ROLLBAR_KEY')
@@ -78,7 +78,7 @@ ROLLBAR_KEY = os.getenv('ROLLBAR_KEY')
 ROLLBAR = {
     'access_token': ROLLBAR_KEY,
     'environment': 'development' if DEBUG else 'production',
-    'code_version': '1.0',
+    'branch': 'main',
     'root': BASE_DIR,
 }
 
